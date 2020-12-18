@@ -72,6 +72,11 @@ func CopyTerraformFolderToTemp(t testing.TestingT, rootFolder string, terraformM
 		return filepath.Join(rootFolder, terraformModuleFolder)
 	}
 
+	_, err := files.DirExistsE(terraformModuleFolder)
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	tmpRootFolder, err := files.CopyTerraformFolderToTemp(rootFolder, cleanName(t.Name()))
 	if err != nil {
 		t.Fatal(err)
