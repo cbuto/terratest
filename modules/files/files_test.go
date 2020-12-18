@@ -81,6 +81,7 @@ func TestCopyFolderToTemp(t *testing.T) {
 
 	folder, err := CopyFolderToTemp(currentFileDir, tempFolderPrefix, filter)
 	assert.DirExists(t, folder)
+	assert.Nil(t, err)
 }
 
 func TestCopyFolderContents(t *testing.T) {
