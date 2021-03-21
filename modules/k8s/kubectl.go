@@ -35,7 +35,7 @@ func RunKubectlAndGetOutputE(t testing.TestingT, options *KubectlOptions, args .
 	if options.Namespace != "" {
 		cmdArgs = append(cmdArgs, "--namespace", options.Namespace)
 	}
-	cmdArgs = append(cmdArgs, args...)
+	cmdArgs = append(args, cmdArgs...)
 	command := shell.Command{
 		Command: "kubectl",
 		Args:    cmdArgs,
